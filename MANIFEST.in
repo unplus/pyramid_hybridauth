@@ -1,0 +1,5 @@
+include CHANGES.txt
+include README.txt
+exclude pyramid_hybridauth/tests/*.py
+exclude pyramid_hybridauth/examples/*
+global-exclude *.pyc
