@@ -1,5 +1,5 @@
 from pyramid.security import NO_PERMISSION_REQUIRED
-from providers import authenticate, view_callback, load_providers
+from .providers import authenticate, view_callback, load_providers
 from .exceptions import ProviderAccessError, ProviderConfigError # noqa
 
 

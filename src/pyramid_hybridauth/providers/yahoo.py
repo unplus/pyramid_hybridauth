@@ -26,9 +26,8 @@ class YahooService(OAuth2Service):
         return self.access_token_response
 
     def _create_basic_auth(self):
-
-        key = f"{self.client_id}:{self.client_secret}"
-        return base64.b64encode(key)
+        key = f"{self.client_id}:{self.client_secret}".encode("utf-8")
+        return base64.b64encode(key).decode("utf-8")
 
 
 class YahooProvider(AbstractOAuth2Provider):

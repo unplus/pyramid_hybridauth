@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dashboard</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        $('.release').click(function(e) {
+          e.preventDefault();
+          $.getJSON($(e.target).attr('href'));
+          var p = $(e.target).parent();
+          $('.uid', p).html('');
+          $('.display_name', p).html('');
+        });
+        $('.join').click(function(e) {
+          e.preventDefault();
+          window.open($(e.target).attr('href'), 'join', 'width=500,height=400');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      Dashboard
+      <a href="{{ req.route_url('logout') }}">Logout</a><br />
+
+      <div>
+        <h3>Twitter</h3>
+        {%- if twitter %}
+        {{ twitter.uid }}/{{ twitter.display_name }}
+        <a
+          href="{{ req.route_url('release', provider='twitter') }}"
+          class="release"
+          >Release</a
+        >
+        {%- else -%}
+        <a
+          href="{{ req.route_url('auth_authenticate', provider='twitter', scene='join') }}"
+          class="join"
+          >Join</a
+        >
+        {% endif -%}
+      </div>
+
+      <div>
+        <h3>Facebook</h3>
+        {%- if facebook %}
+        {{ facebook.uid }}/{{ facebook.display_name }}
+        <a
+          href="{{ req.route_url('release', provider='facebook') }}"
+          class="release"
+          >Release</a
+        >
+        {%- else -%}
+        <a
+          href="{{ req.route_url('auth_authenticate', provider='facebook', scene='join') }}"
+          class="join"
+          >Join</a
+        >
+        {% endif -%}
+      </div>
+
+      <div>
+        <h3>Google</h3>
+        {%- if google %}
+        {{ google.uid }}/{{ google.display_name }}
+        <a
+          href="{{ req.route_url('release', provider='google') }}"
+          class="release"
+          >Release</a
+        >
+        {%- else -%}
+        <a
+          href="{{ req.route_url('auth_authenticate', provider='google', scene='join') }}"
+          class="join"
+          >Join</a
+        >
+        {% endif -%}
+      </div>
+      <div>
+        <h3>Yahoo</h3>
+        {%- if yahoo %}
+        {{ yahoo.uid }}/{{ yahoo.display_name }}
+        <a
+          href="{{ req.route_url('release', provider='yahoo') }}"
+          class="release"
+          >Release</a
+        >
+        {%- else -%}
+        <a
+          href="{{ req.route_url('auth_authenticate', provider='yahoo', scene='join') }}"
+          class="join"
+          >Join</a
+        >
+        {% endif -%}
+      </div>
+      <div>
+        <h3>Ninja</h3>
+        {%- if ninja %}
+        {{ ninja.uid }}/{{ ninja.display_name }}
+        <a
+          href="{{ req.route_url('release', provider='ninja') }}"
+          class="release"
+          >Release</a
+        >
+        {%- else -%}
+        <a
+          href="{{ req.route_url('auth_authenticate', provider='ninja', scene='join') }}"
+          class="join"
+          >Join</a
+        >
+        {% endif -%}
+      </div>
+    </div>
+  </body>
+</html>

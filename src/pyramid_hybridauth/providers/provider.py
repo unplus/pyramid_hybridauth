@@ -6,7 +6,7 @@ from pyramid.httpexceptions import HTTPFound
 from pyramid.settings import asbool
 
 import json
-from hashlib import sha1
+import hashlib
 from random import random
 
 from ..exceptions import ProviderConfigError, ProviderAccessError
@@ -104,7 +104,7 @@ class AbstractOAuth1Provider(AbstractProvider):
             self._authorize_url = settings[f"{prefix}.authorize_url"]
             self._access_token_url = settings[f"{prefix}.access_token_url"]
         except KeyError as e:
-            raise ProviderConfigError("OAuth2 env is not setting.", e)
+            raise ProviderConfigError("OAuth1 env is not setting.", e)
 
     def _authenticate(self, request, callback_url):
         redirect_uri = callback_url
@@ -183,7 +183,7 @@ class AbstractOAuth2Provider(AbstractProvider):
 
     def _authenticate(self, request, callback_url):
         service = self._get_service()
-        state = sha1(str(random())).hexdigest()
+        state = hashlib.sha1(str(random()).encode("utf-8")).hexdigest()
         params = {
             "redirect_uri": callback_url,
             "response_type": "code",

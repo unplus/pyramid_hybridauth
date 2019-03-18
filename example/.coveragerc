@@ -1,0 +1,3 @@
+[run]
+source = example
+omit = example/test*
