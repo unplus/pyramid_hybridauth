@@ -10,6 +10,7 @@ license = "MIT"
 classifiers = [
     "Framework :: Pylons"
 ]
+include = ["CHANGELOG.md"]
 
 [tool.poetry.dependencies]
 python = "^3.6"
@@ -21,6 +22,9 @@ pytest = "^4.3.1"
 flake8 = "*"
 black = { version = "*", allows-prereleases = true }
 cookiecutter = "^1.6"
+
+[tool.black]
+line-length = 79
 
 [build-system]
 requires = ["poetry>=0.12"]
