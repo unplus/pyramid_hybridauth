@@ -15,7 +15,7 @@ include = ["CHANGELOG.md"]
 [tool.poetry.dependencies]
 python = "^3.6"
 pyramid = "^1.10"
-rauth = "^0.7.3"
+requests_oauthlib = "^1.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^4.3.1"

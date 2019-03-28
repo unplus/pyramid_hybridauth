@@ -1,10 +1,11 @@
 from pyramid.security import NO_PERMISSION_REQUIRED
-from .providers import authenticate, view_callback, load_providers
-from .exceptions import ProviderAccessError, ProviderConfigError # noqa
-
-
-def add_auth_provider(config, provider):
-    config.registry.auth_providers[provider.name] = provider
+from .provider import (
+    authenticate,
+    view_callback,
+    load_providers,
+    add_auth_provider,
+)
+from .exceptions import ProviderAccessError, ProviderConfigError  # noqa
 
 
 def includeme(config):

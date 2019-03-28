@@ -1,6 +1,7 @@
 from pyramid.authentication import AuthTktAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
 from pyramid.session import UnencryptedCookieSessionFactoryConfig
+import os
 
 
 def groupfinder(userid, request):
@@ -8,6 +9,7 @@ def groupfinder(userid, request):
 
 
 def includeme(config):
+    os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
     config.include("pyramid_hybridauth", route_prefix="/auth")
 
     authn_policy = AuthTktAuthenticationPolicy(

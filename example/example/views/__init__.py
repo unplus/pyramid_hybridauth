@@ -1,4 +1,4 @@
-from pyramid.view import view_config
+from pyramid.view import view_config, exception_view_config
 from pyramid.renderers import render_to_response
 from pyramid.httpexceptions import HTTPFound, HTTPForbidden
 from pyramid.security import (
@@ -7,6 +7,10 @@ from pyramid.security import (
     unauthenticated_userid,
     NO_PERMISSION_REQUIRED,
 )
+from pyramid_hybridauth import ProviderAccessError
+from logging import getLogger
+
+logger = getLogger(__name__)
 
 
 @view_config(
@@ -41,6 +45,14 @@ def logout(request):
     headers = forget(request)
     request.session.invalidate()
     return HTTPFound(location=request.route_url("home"), headers=headers)
+
+
+@exception_view_config(ProviderAccessError)
+def auth_error(request):
+    logger.error(
+        f"The error was: {request.exception}", exc_info=(request.exception)
+    )
+    return HTTPForbidden()
 
 
 def twitter_login(request, provider_name, user):
