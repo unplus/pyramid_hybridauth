@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "example"
+version = "1.0.0"
+description = ""
+authors = ["Yoshimitsu Kokubo <yoshi@unplus.net>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+pyramid = "^1.10"
+pyramid_jinja2 = "^2.8"
+waitress = "^1.2"
+pyramid-hybridauth = { path = "../" }
+
+[tool.poetry.dev-dependencies]
+pytest = "^4.3.1"
+flake8 = "*"
+black = { version = "*", allows-prereleases = true }
+cookiecutter = "^1.6"
+
+[tool.poetry.plugins."paste.app_factory"]
+"main" = "example:main"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

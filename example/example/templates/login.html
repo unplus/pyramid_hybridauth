@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div>
+        Clicks by following providers.<br />
+        <a href="{{ req.route_url('auth_authenticate', provider='google', scene='login') }}">Google<br />
+        <a href="{{ req.route_url('auth_authenticate', provider='facebook', scene='login') }}">FaceBook<br />
+        <a href="{{ req.route_url('auth_authenticate', provider='twitter', scene='login') }}">Twitter<br />
+        <a href="{{ req.route_url('auth_authenticate', provider='ninja', scene='login') }}">Ninja<br />
+        <a href="{{ req.route_url('auth_authenticate', provider='yahoo', scene='login') }}">Yahoo<br />
+      </div>
+  </body>
+</html>
