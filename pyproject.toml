@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyramid_hybridauth"
-version = "1.0.0"
+version = "1.0.1"
 description = "It provides Pyramid authentication in conjunction with external services  using OAuth."
 readme = "README.rst"
 authors = ["Yoshimitsu Kokubo <yoshi@unplus.net>"]
@@ -18,9 +18,13 @@ pyramid = "^1.10"
 requests_oauthlib = "^1.2"
 
 [tool.poetry.dev-dependencies]
-pytest = "^4.3.1"
-flake8 = "*"
-black = { version = "*", allows-prereleases = true }
+flake8 = "^3.7.9"
+black = "^19.10b0"
+pytest = "^5.3.3"
+pytest-cov = "^2.8.1"
+pytest-mock = "^2.0.0"
+pytest-flake8 = "^1.0"
+ipython = "^7.11.1"
 
 [tool.black]
 line-length = 79
