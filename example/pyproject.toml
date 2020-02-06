@@ -13,10 +13,6 @@ waitress = "^1.2"
 pyramid-hybridauth = { path = "../" }
 
 [tool.poetry.dev-dependencies]
-pytest = "^4.3.1"
-flake8 = "*"
-black = { version = "*", allows-prereleases = true }
-cookiecutter = "^1.6"
 
 [tool.poetry.plugins."paste.app_factory"]
 "main" = "example:main"
