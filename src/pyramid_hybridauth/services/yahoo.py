@@ -21,6 +21,6 @@ class YahooService(Service):
         )
         response = oauth.get(config.request_url)
         data = response.json()
-        uid = data["user_id"]
-        display_name = data.get("name")
+        uid = data["sub"]
+        display_name = data.get("nickname")
         return User(uid, display_name, data)
