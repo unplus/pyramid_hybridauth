@@ -1,7 +1,8 @@
+import os
+
 from pyramid.authentication import AuthTktAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
 from pyramid.session import UnencryptedCookieSessionFactoryConfig
-import os
 
 
 def groupfinder(userid, request):
