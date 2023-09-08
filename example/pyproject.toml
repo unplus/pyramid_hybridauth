@@ -11,7 +11,6 @@ pyramid = "^1.10"
 pyramid_jinja2 = "^2.8"
 waitress = "^1.2"
 pyramid-hybridauth = { path = "../" }
-# pyramid-hybridauth = "=1.1.0"
 
 [tool.poetry.dev-dependencies]
 black = "^22.3.0"

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyramid_hybridauth"
-version = "1.1.0"
+version = "1.1.1"
 description = "It provides Pyramid authentication in conjunction with external services  using OAuth."
 readme = "README.rst"
 authors = ["Yoshimitsu Kokubo <yoshi@unplus.net>"]

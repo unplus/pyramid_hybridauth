@@ -6,29 +6,42 @@
   },
   "workspaceMount": "source=${localWorkspaceFolder},target=/opt/dev,type=bind,consistency=cached",
   "workspaceFolder": "/opt/dev",
-  "settings": {
-    "python.languageServer": "Pylance",
-    "python.linting.enabled": true,
-    "python.linting.flake8Enabled": true,
-    "python.linting.pylintEnabled": false,
-    "python.linting.mypyEnabled": true,
-    "python.formatting.provider": "black",
-    "editor.defaultFormatter": "ms-python.python",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": true
-    },
-    "python.analysis.diagnosticMode": "workspace",
-    "python.analysis.typeCheckingMode": "basic",
-    "python.analysis.diagnosticSeverityOverrides": {
-      "reportMissingImports": "none",
-      "reportGeneralTypeIssues": "none",
-      "reportMissingModuleSource": "none"
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.languageServer": "Pylance",
+        "python.pythonPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.flake8Enabled": true,
+        "python.linting.pylintEnabled": false,
+        "python.linting.mypyEnabled": false,
+        "python.formatting.provider": "none",
+        "[python]": {
+          "editor.defaultFormatter": "ms-python.black-formatter",
+          "editor.formatOnSave": true,
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+          }
+        },
+        "isort.args": [
+          "--profile",
+          "black"
+        ],
+        "python.analysis.diagnosticMode": "workspace",
+        "python.analysis.typeCheckingMode": "off",
+        "python.analysis.diagnosticSeverityOverrides": {
+          "reportMissingImports": "none",
+          "reportGeneralTypeIssues": "none"
+        }
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        "ms-python.flake8",
+        "bungcip.better-toml"
+      ]
     }
-  },
-  "extensions": [
-    "ms-python.python",
-    "ms-python.vscode-pylance",
-    "bungcip.better-toml"
-  ]
+  }
 }
