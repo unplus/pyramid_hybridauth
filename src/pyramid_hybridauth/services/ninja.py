@@ -37,7 +37,7 @@ def ninja_compliance_fix(session):
 
         token = r.json()
         expires_in = token.get("expires_in")
-        if expires_in and int(expires_in) < 1:
+        if expires_in is not None and int(expires_in) < 1:
             token.pop("expires_in")
         r._content = to_unicode(dumps(token)).encode("UTF-8")
         return r
